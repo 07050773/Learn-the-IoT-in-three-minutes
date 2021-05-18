@@ -1,26 +1,38 @@
+#!/usr/bin/env python3
+pinWAT = 0
+
+
 def wat():
-    #!/usr/bin/env python3
-    import time
-    import RPi.GPIO as GPIO
+  global pinWAT
 
-    GPIO.setmode(GPIO.BOARD)
-    GPIO.setwarnings(False)
-    GPIO.setup(22, GPIO.OUT,initial=GPIO.LOW) #GPIO 23
+  import time
+  import RPi.GPIO as GPIO
 
-    #GPIO = 23
-    #try:
-    #if DHT22 > 25
-       #print('按下 Ctrl-C 可停止程式')
-    #while True:
-    #if :
-    time.sleep(5)
+  GPIO.setmode(GPIO.BOARD)
+  GPIO.setwarnings(False)
+  #GPIO.setup(22, GPIO.OUT, initial=GPIO.LOW)  # GPIO 23
+
+  # GPIO = 23
+  # try:
+  # if DHT22 > 25
+  # print('按下 Ctrl-C 可停止程式')
+  # while True:
+  # if :
+
+  W = int(input('Put WAT ON(1) or OFF(0) :'))
+  if W == 1:
+    GPIO.output(22, True)
+    pinWAT = 1
+  else:
+    GPIO.output(22, False)
+    pinWAT = 0
+  # else:
+    # except KeyboardInterrupt:
+    # print('關閉程式')
+
+
+def watsw():
+  if pinWAT == 1:
     print('WAT ON !')
-    GPIO.output(22,True)
-    #else:
-    time.sleep(10)
+  else:
     print('WAT OFF !')
-    GPIO.output(22,False)
-    time.sleep(10)
-    #except KeyboardInterrupt:
-    #print('關閉程式')
-
